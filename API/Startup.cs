@@ -32,7 +32,7 @@ namespace API
         {
             services.AddDbContext<DataContext>(options =>
             {
-                options.UseSqlServer(_config.GetConnectionString("DefaultConnection"));
+                options.UseSqlServer(_config.GetConnectionString("DatingAppDB"));
             });
             services.AddControllers();
             services.AddSwaggerGen(c =>

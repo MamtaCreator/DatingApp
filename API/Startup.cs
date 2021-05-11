@@ -35,6 +35,7 @@ namespace API
                 options.UseSqlServer(_config.GetConnectionString("DatingAppDB"));
             });
             services.AddControllers();
+            services.AddCors(o=>o.AddDefaultPolicy(builder =>builder.WithOrigins("*").AllowAnyHeader().AllowAnyMethod()));
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
@@ -55,11 +56,14 @@ namespace API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseCors();
 
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
+
+
                 endpoints.MapControllers();
             });
         }

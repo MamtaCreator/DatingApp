@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -16,10 +17,11 @@ export class AppComponent implements OnInit {
     this.getUsers();
   }
   getUsers(){
-    this.http.get("https://localhost:44345/api/users/").subscribe(response=>{
+    this.http.get("https://localhost:44345/api/users").subscribe(response=>{
       this.users= response;
   },error=>{
     console.log(error);
     })
   }
 }
+

@@ -11,12 +11,12 @@ import { AccountService } from './_services/account.service';
 export class AppComponent implements OnInit {
   title = 'The Dating App';
   users: any;  // any type of data are allowes that is type safety
-  constructor(private http: HttpClient, private accountService: AccountService) // Make an Http Request
+  constructor( private accountService: AccountService) // Make an Http Request
   {
 
   }
   ngOnInit()  {
-    this.getUsers();
+   
     this.setCurrentUser();
   }
 
@@ -24,12 +24,6 @@ export class AppComponent implements OnInit {
     const user: User = JSON.parse(localStorage.getItem('user'));
   }
 
-  getUsers(){
-    this.http.get("https://localhost:44345/api/users").subscribe(response=>{
-      this.users= response;
-  },error=>{
-    console.log(error);
-    })
-  }
+  
 }
 

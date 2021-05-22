@@ -5,7 +5,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="navbar-nav mr-auto" *ngIf="loggedIn">
+      <ul class="navbar-nav mr-auto" *ngIf="currentUser$| async">
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Matches</font></font></a>
         </li>
@@ -17,11 +17,9 @@
         <li class="nav-item">
           <a class="nav-link" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Messages</font></font></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;" (click)="logout()">Logout</font></font></a>
-        </li>
+        
       </ul>
-       <div class="dropdown" *ngIf="loggedIn" dropdown>
+       <div class="dropdown" *ngIf="currentUser$ | async" dropdown>
 
          <a  class="dropdown-toggle text-light" dropdownToggle>welcome user</a>
          <div class="dropdown-menu mt-3" *dropdownMenu>
@@ -32,7 +30,7 @@
          </div>
        </div>
 
-      <form *ngIf="!loggedIn" #loginForm="ngForm" class="form-inline mt-2 mt-md-0" (ngSubmit)="login()" autocomplete="off">
+      <form *ngIf="(currentUser$ | async) === null" #loginForm="ngForm" class="form-inline mt-2 mt-md-0" (ngSubmit)="login()" autocomplete="off">
         <input name="username" [(ngModel)]="model.username"  class="form-control mr-sm-2" type="text" placeholder="Username">
         <input name="password" [(ngModel)]="model.password" class="form-control mr-sm-2" type="password" placeholder="Password">
         <button class="btn btn-outline-success my-2 mr-sm-0" type="submit"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Login</font></font></button>

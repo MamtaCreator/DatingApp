@@ -10,8 +10,8 @@ import { User } from '../_models/user';
 export class AccountService {
 
   baseUrl = 'https://localhost:44345/api/';
-  private cureentUserSource = new ReplaySubject<User>(1);
-  CurrentUser$ = this.cureentUserSource.asObservable();
+  private currentUserSource = new ReplaySubject<User>(1);
+  CurrentUser$ = this.currentUserSource.asObservable();
   constructor(private http: HttpClient) { }
 
   login(model: any) {
@@ -21,11 +21,23 @@ export class AccountService {
         const user = response;
         if (user) {
           localStorage.setItem('user', JSON.stringify(user));
-          this.cureentUserSource.next(user);
+          this.currentUserSource.next(user);
         }
 
       })
 
+    )
+  }
+  register(model: any) {
+    return this.http.post(this.baseUrl + 'account/register', model).pipe(
+      map((response: User) => {
+        const user = response;
+        if (user) {
+          localStorage.setItem('user', JSON.stringify(user));
+          this.cureentUserSource.next(user);
+        }
+        return user;
+      })
     )
   }
   setCurrentUser(user: User) {

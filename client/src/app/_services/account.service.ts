@@ -34,18 +34,18 @@ export class AccountService {
         const user = response;
         if (user) {
           localStorage.setItem('user', JSON.stringify(user));
-          this.cureentUserSource.next(user);
+          this.currentUserSource.next(user);
         }
         return user;
       })
     )
   }
   setCurrentUser(user: User) {
-    this.cureentUserSource.next(user);
+    this.currentUserSource.next(user);
   }
   logout() {
 
     localStorage.removeItem('user');
-    this.cureentUserSource.next(null);
+    this.currentUserSource.next(null);
   }
 }

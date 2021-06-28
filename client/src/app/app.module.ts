@@ -9,13 +9,22 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
-
+import { ListComponent } from './list/list.component';
+import { MessagesComponent } from './messages/messages.component';
+import { MemberDetailsComponent } from '../members/member-details/member-details.component';
+import { MemberListComponent } from '../members/member-list/member-list.component';
+import { ToastrModule } from 'ngx-toastr'
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    MemberDetailsComponent,
+    MemberListComponent,
+    ListComponent,
+    MessagesComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -24,6 +33,9 @@ import { RegisterComponent } from './register/register.component';
     BrowserAnimationsModule,
     FormsModule,
     BsDropdownModule.forRoot(), // for service/components
+    ToastrModule.forRoot({
+      positionClass :'toastr-top-right'
+    })
    
   ],
   providers: [],

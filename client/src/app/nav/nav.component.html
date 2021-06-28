@@ -1,21 +1,21 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
   <div class="container">
-    <a class="navbar-brand" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Dating App</font></font></a>
+    <a class="navbar-brand" routerLink ="/" routerLinkActive="active"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Dating App</font></font></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Navigation toggle">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="navbar-nav mr-auto" *ngIf="currentUser$| async">
+      <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Matches</font></font></a>
+          <a class="nav-link" aria-current="page" routerLink="/members" routerLinkActive="active"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Matches</font></font></a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Lists</font></font></a>
+          <a class="nav-link" routerLink="/lists"  routerLinkActive="active"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Lists</font></font></a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Messages</font></font></a>
+          <a class="nav-link" routerLink="/messages" routerLinkActive="active"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Messages</font></font></a>
         </li>
         
       </ul>

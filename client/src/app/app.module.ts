@@ -13,7 +13,8 @@ import { ListComponent } from './list/list.component';
 import { MessagesComponent } from './messages/messages.component';
 import { MemberDetailsComponent } from '../members/member-details/member-details.component';
 import { MemberListComponent } from '../members/member-list/member-list.component';
-import { ToastrModule } from 'ngx-toastr'
+import { ToastrModule } from 'ngx-toastr';
+import { TestErrorsComponent } from './errors/test-errors/test-errors.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +25,7 @@ import { ToastrModule } from 'ngx-toastr'
     MemberListComponent,
     ListComponent,
     MessagesComponent,
+    TestErrorsComponent,
    
   ],
   imports: [
